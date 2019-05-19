@@ -5,14 +5,14 @@ import { asyncData } from "../redux/action/fetchAction";
 
 class App extends Component {
   componentDidMount() {
-    this.props.fetch();
+    this.props.fetch("2019", "05", "21");
   }
   render() {
     return <div />;
   }
 }
 const mapDispathToProps = dispatch => ({
-  fetch: () => dispatch(asyncData())
+  fetch: () => dispatch(asyncData("2019", "05", "21"))
 });
 
 export default connect(
