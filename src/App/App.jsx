@@ -1,31 +1,21 @@
-import React, { Component } from 'react';
-import {testAction} from '../redux/action/testAction';
-import {connect} from 'react-redux';
-import styles from './App.module.css'
-import test from '../redux/reducer/testReduce';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { asyncData } from "../redux/action/fetchAction";
+// import s from "./App.module.css";
 
 class App extends Component {
-    render() {
-        const {addTest} = this.props;
-        return (
-            <div>
-                <input onChange = {addTest} type="text"/>
-            </div>
-        );
-    }
+  componentDidMount() {
+    this.props.fetch();
+  }
+  render() {
+    return <div />;
+  }
 }
+const mapDispathToProps = dispatch => ({
+  fetch: () => dispatch(asyncData())
+});
 
-function mapStateToProps (state) {
-    return {
-        value: state.test,
-    }
-}
-
-function mapDispatchToProps (dispatch) {
-    return {
-        addTest: function() {
-            dispatch(testAction())
-        }
-    }
-}
-export default connect(mapStateToProps, mapDispatchToProps) (App);
+export default connect(
+  null,
+  mapDispathToProps
+)(App);
