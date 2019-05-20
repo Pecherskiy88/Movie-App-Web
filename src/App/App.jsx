@@ -1,30 +1,18 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { asyncData } from "../redux/action/fetchAction";
-import Datepicker from "../Calendar/Calendar";
+import DatePicker from "../DatePicker/DatePicker";
+
 // import s from "./App.module.css";
 
 class App extends Component {
-  state = {
-    date: new Date()
-  };
-  componentDidMount() {
-    this.props.fetch("2019", "05", "21");
-  }
   render() {
-    const { date } = this.state;
     return (
       <div>
-        <Datepicker value={date} />
+        <DatePicker />
       </div>
     );
   }
 }
-const mapDispathToProps = dispatch => ({
-  fetch: () => dispatch(asyncData("2019", "05", "21"))
-});
 
-export default connect(
-  null,
-  mapDispathToProps
-)(App);
+export default App;
+
+// Календарь импортировать сразу в компоненте Арр, фетч перенести в другой компонент, куда буду прокидывать пропсы(value календаря), а затем фетч будет вытягивать список по нужной дате. Компонент фетча на другом Роуте, а значит можно юзать componentDidMount
