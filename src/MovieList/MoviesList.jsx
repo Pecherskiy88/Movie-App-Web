@@ -4,15 +4,16 @@ import { asyncData } from "../redux/action/fetchAction";
 
 class MovieList extends Component {
   componentDidMount() {
-    this.props.fetch("2019", "05", "21");
+    console.log("MovieDate: ", this.props.dateValue);
+    let date = this.props.dateValue;
+    this.props.fetch();
   }
   render() {
-    console.log("MovieDate: ", this.props.dateValue);
     return <div>MovieList</div>;
   }
 }
 const mapDispatchToProps = dispatch => ({
-  fetch: () => dispatch(asyncData("2019", "05", "21"))
+  fetch: () => dispatch(asyncData("2019", "05", "30"))
 });
 
 export default connect(

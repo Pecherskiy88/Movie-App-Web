@@ -11,7 +11,6 @@ class DatePicker extends Component {
   onChange = date => this.setState({ date });
   render() {
     const { date } = this.state;
-    console.log(date);
     return (
       <div>
         <Switch>
