@@ -30,6 +30,10 @@ class MovieList extends Component {
           fetchData.map(el => (
             <MovieListItems
               data={el}
+              name={el.show.name}
+              premiered={el.show.premiered}
+              season={el.season}
+              part={el.number}
               img={
                 el.show.image === null
                   ? (el.show.image = "no image")
