@@ -1,7 +1,7 @@
 import React from "react";
 
-const MovieListItems = () => {
-  return <li>ура!</li>;
+const MovieListItems = ({ data }) => {
+  return <li>data</li>;
 };
 
 export default MovieListItems;
