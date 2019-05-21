@@ -27,7 +27,17 @@ class MovieList extends Component {
         {fetchData.length === 0 ? (
           <Loader type="Plane" color="#00BFFF" height="100" width="100" />
         ) : (
-          fetchData.map(el => <MovieListItems data={fetchData} key={el.id} />)
+          fetchData.map(el => (
+            <MovieListItems
+              data={el}
+              img={
+                el.show.image === null
+                  ? (el.show.image = "no image")
+                  : el.show.image
+              }
+              key={el.id}
+            />
+          ))
         )}
       </ul>
     );
