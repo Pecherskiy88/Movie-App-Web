@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { asyncData } from "../redux/action/fetchAction";
+import MovieListItems from "../MovieListItems/MovieListItems";
+import Loader from "react-loader-spinner";
 
 class MovieList extends Component {
   componentDidMount() {
@@ -14,28 +16,32 @@ class MovieList extends Component {
         : fullDate.getMonth();
     // проверка: к однозначному числу добавляем "0"
     let day =
-      fullDate.getDate() < 10 ? "0" + fullDate.getDate() : fullDate.getDate;
+      fullDate.getDate() < 10 ? "0" + fullDate.getDate() : fullDate.getDate();
 
     this.props.fetch(year, month, day); // передаем аргументы фетчу, что бы подставить переменные в url
   }
   render() {
+    const { fetchData } = this.props;
+    console.log(fetchData);
     return (
       <ul>
-        <li>Заглушка</li>
+        {fetchData.length === 0 ? (
+          <Loader type="Plane" color="#00BFFF" height="100" width="100" />
+        ) : (
+          <MovieListItems />
+        )}
       </ul>
     );
   }
 }
-// const mapStateToPtops = state => ({
-//   fetchData: state.fetchData
-// });
+const mapStateToProps = state => ({
+  fetchData: state.fetchData
+});
 const mapDispatchToProps = dispatch => ({
   fetch: (year, month, day) => dispatch(asyncData(year, month, day))
 });
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(MovieList);
-
-// решить проблему с пустым массивом фетча, когда пытаемся достать пропсы из MSTP
