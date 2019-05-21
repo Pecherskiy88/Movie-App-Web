@@ -1,0 +1,15 @@
+.Header {
+  height: 10vh;
+  text-align: center;
+  background-image: url("../assets/orig.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.HeaderText {
+  font-size: 0.8125rem;
+  color: #323232;
+  font-weight: 500;
+  letter-spacing: 0.3125rem;
+  padding: 1.65rem;
+  margin: 0;
+}

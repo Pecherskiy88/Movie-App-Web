@@ -1,0 +1,35 @@
+.ListItems {
+  margin-bottom: 1.1875rem;
+}
+.ImageBlock {
+  width: 30%;
+}
+.Image {
+  width: 75%;
+  border-radius: 0.25rem;
+  box-shadow: 1px -2px 18px -5px rgba(180, 180, 180, 1);
+}
+.Name {
+  color: #4f4f4f;
+  font-size: 0.875rem;
+  margin-top: 0;
+}
+.PremieredDate {
+  color: #b4b4b4;
+  margin: 0 0 0.875rem;
+  font-size: 0.625rem;
+}
+.Description {
+  width: 60%;
+}
+.Part {
+  padding-left: 0.7rem;
+}
+.AboutPart {
+  width: 8rem;
+  text-align: center;
+  background-color: #f5f5f5;
+  color: #a7a7a7;
+  font-size: 0.625rem;
+  padding: 0.5rem 0;
+}

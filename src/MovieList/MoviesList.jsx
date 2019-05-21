@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { asyncData } from "../redux/action/fetchAction";
 import MovieListItems from "../MovieListItems/MovieListItems";
 import Loader from "react-loader-spinner";
+import s from "./MoviesList.module.css";
 
 class MovieList extends Component {
   componentDidMount() {
@@ -23,7 +24,7 @@ class MovieList extends Component {
   render() {
     const { fetchData } = this.props;
     return (
-      <ul>
+      <ul className={s.List}>
         {fetchData.length === 0 ? (
           <Loader type="Plane" color="#00BFFF" height="100" width="100" />
         ) : (
