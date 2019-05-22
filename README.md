@@ -1,4 +1,5 @@
-![pic](https://4brain.ru/blog/wp-content/uploads/2017/07/%D0%B8%D0%B4%D0%B5%D0%B8-%D0%B4%D0%BB%D1%8F-%D0%B1%D0%BB%D0%BE%D0%B3%D0%B0.jpg)
+![pic](https://github.com/Pecherskiy88/Movie-App-Web/blob/master/Screen%20Shot%202019-05-22%20at%2007.23.35.png)
+![pic](https://github.com/Pecherskiy88/Movie-App-Web/blob/master/Screen%20Shot%202019-05-22%20at%2007.23.16.png)
 
 # Must be installed
 
