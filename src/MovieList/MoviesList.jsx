@@ -10,15 +10,18 @@ class MovieList extends Component {
   componentDidMount() {
     let fullDate = this.props.dateValue; // дата при клике в календаре
 
-    let year = fullDate.getFullYear();
+    let year = fullDate.getFullYear().toString();
     // Добавялем 1 для отображения 0 месяца, как 1ого и проверка: к однозначному числу добавляем "0"
     let month =
-      fullDate.getMonth() + 1 < 10
-        ? "0" + fullDate.getMonth()
-        : fullDate.getMonth();
+      fullDate.getMonth() < 10
+        ? "0" + (1 + fullDate.getMonth())
+        : (fullDate.getMonth() + 1).toString();
     // проверка: к однозначному числу добавляем "0"
     let day =
-      fullDate.getDate() < 10 ? "0" + fullDate.getDate() : fullDate.getDate();
+      fullDate.getDate() < 10
+        ? "0" + fullDate.getDate()
+        : fullDate.getDate().toString();
+    console.log("month: ", month);
 
     this.props.fetch(year, month, day); // передаем аргументы фетчу, что бы подставить переменные в url
   }
