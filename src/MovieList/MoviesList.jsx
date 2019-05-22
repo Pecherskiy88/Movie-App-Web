@@ -8,8 +8,8 @@ import s from "./MoviesList.module.css";
 
 class MovieList extends Component {
   componentDidMount() {
-    const transformToCorrectDate = date => {
-      let fullDate = date; // дата при клике в календаре
+    const transformToCorrectDate = inputDate => {
+      let fullDate = inputDate; // дата при клике в календаре
 
       let year = fullDate.getFullYear().toString();
       // Добавялем 1 для отображения 0 месяца, как 1ого и проверка: к однозначному числу добавляем "0"
@@ -62,7 +62,7 @@ const mapStateToProps = state => ({
   fetchData: state.fetchData
 });
 const mapDispatchToProps = dispatch => ({
-  fetch: (year, month, day) => dispatch(asyncData(year, month, day))
+  fetch: inputDate => dispatch(asyncData(inputDate))
 });
 
 export default connect(

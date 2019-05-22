@@ -1,3 +1,23 @@
+.Wrapper {
+}
+
 .Calendar {
-  margin-top: 100px;
+  margin: 0 auto;
+}
+
+.Img {
+  display: block;
+  width: 30%;
+  margin: 0 auto;
+}
+.Text {
+  margin: 0 auto;
+  width: 80%;
+  text-align: center;
+  color: #4f4f4f;
+  font-size: 0.875rem;
+}
+.Btn {
+  text-decoration: none;
+  cursor: pointer;
 }

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Calendar from "react-calendar";
 import { Switch, Route, NavLink } from "react-router-dom";
 import MoviesList from "../MovieList/MoviesList";
+import TvImg from "../assets/tv.jpg";
 import s from "./DatePicker.module.css";
 
 class DatePicker extends Component {
@@ -13,15 +14,25 @@ class DatePicker extends Component {
   render() {
     const { date } = this.state;
     return (
-      <div>
+      <div className={s.DatePicker}>
         <Switch>
           <Route
             exact
             path="/"
             render={props => (
-              <div>
-                <NavLink to="/movies">GO</NavLink>
-
+              <div className={s.Wrapper}>
+                <img
+                  className={s.Img}
+                  src={TvImg}
+                  alt="выбепмие дату и нажмите просмотреть"
+                />
+                <p className={s.Text}>
+                  Для получения списка сериалов, выберите интересующую дату и
+                  нажмите{" "}
+                  <NavLink className={s.Btn} to="/movies">
+                    Просмотреть
+                  </NavLink>
+                </p>
                 <Calendar
                   className={s.Calendar}
                   {...props}

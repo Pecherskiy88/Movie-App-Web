@@ -1,7 +1,9 @@
 import axios from "axios";
 
-function getFetch(date) {
-  return axios.get(`http://api.tvmaze.com/schedule?country=US&date=${date}`);
+function getFetch(inputDate) {
+  return axios.get(
+    `http://api.tvmaze.com/schedule?country=US&date=${inputDate}`
+  );
 }
 
 const fetchFromApi = data => ({
@@ -9,6 +11,6 @@ const fetchFromApi = data => ({
   data
 });
 
-export const asyncData = date => dispatch => {
-  getFetch(date).then(res => dispatch(fetchFromApi(res.data)));
+export const asyncData = inputDate => dispatch => {
+  getFetch(inputDate).then(res => dispatch(fetchFromApi(res.data)));
 };
