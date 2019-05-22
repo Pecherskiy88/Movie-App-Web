@@ -1,6 +1,6 @@
 import React from "react";
-import DatePicker from "../DatePicker/DatePicker";
 import Header from "../Header/Header";
+import DatePicker from "../DatePicker/DatePicker";
 
 const App = () => {
   return (

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { asyncData } from "../redux/action/fetchAction";
 import MovieListItems from "../MovieListItems/MovieListItems";
 import Loader from "react-loader-spinner";
+import { NavLink } from "react-router-dom";
 import s from "./MoviesList.module.css";
 
 class MovieList extends Component {
@@ -24,27 +25,30 @@ class MovieList extends Component {
   render() {
     const { fetchData } = this.props;
     return (
-      <ul className={s.List}>
-        {fetchData.length === 0 ? (
-          <Loader type="Plane" color="#00BFFF" height="100" width="100" />
-        ) : (
-          fetchData.map(el => (
-            <MovieListItems
-              data={el}
-              name={el.show.name}
-              premiered={el.show.premiered}
-              season={el.season}
-              part={el.number}
-              img={
-                el.show.image === null
-                  ? (el.show.image = "no image")
-                  : el.show.image
-              }
-              key={el.id}
-            />
-          ))
-        )}
-      </ul>
+      <div>
+        <NavLink to="/">НАЗАД</NavLink>
+        <ul className={s.List}>
+          {fetchData.length === 0 ? (
+            <Loader type="Plane" color="#00BFFF" height="100" width="100" />
+          ) : (
+            fetchData.map(el => (
+              <MovieListItems
+                data={el}
+                name={el.show.name}
+                premiered={el.show.premiered}
+                season={el.season}
+                part={el.number}
+                img={
+                  el.show.image === null
+                    ? (el.show.image = "no image")
+                    : el.show.image
+                }
+                key={el.id}
+              />
+            ))
+          )}
+        </ul>
+      </div>
     );
   }
 }

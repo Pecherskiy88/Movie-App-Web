@@ -1,4 +1,6 @@
-function fetchReducer(state = [], action) {
+const initialState = [];
+
+function fetchReducer(state = initialState, action) {
   switch (action.type) {
     case "DOWNLOADED":
       return action.data;

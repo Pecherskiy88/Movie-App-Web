@@ -13,13 +13,19 @@ class DatePicker extends Component {
     const { date } = this.state;
     return (
       <div>
-        <NavLink to="/movies">GO</NavLink>
         <Switch>
           <Route
             exact
             path="/"
             render={props => (
-              <Calendar {...props} dateValue={date} onChange={this.onChange} />
+              <div>
+                <NavLink to="/movies">GO</NavLink>
+                <Calendar
+                  {...props}
+                  dateValue={date}
+                  onChange={this.onChange}
+                />
+              </div>
             )}
           />
           <Route
