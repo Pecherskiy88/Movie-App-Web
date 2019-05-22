@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Calendar from "react-calendar";
 import { Switch, Route, NavLink } from "react-router-dom";
 import MoviesList from "../MovieList/MoviesList";
+import s from "./DatePicker.module.css";
 
 class DatePicker extends Component {
   state = {
@@ -20,7 +21,9 @@ class DatePicker extends Component {
             render={props => (
               <div>
                 <NavLink to="/movies">GO</NavLink>
+
                 <Calendar
+                  className={s.Calendar}
                   {...props}
                   dateValue={date}
                   onChange={this.onChange}

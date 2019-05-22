@@ -8,22 +8,25 @@ import s from "./MoviesList.module.css";
 
 class MovieList extends Component {
   componentDidMount() {
-    let fullDate = this.props.dateValue; // дата при клике в календаре
+    const transformToCorrectDate = date => {
+      let fullDate = date; // дата при клике в календаре
 
-    let year = fullDate.getFullYear().toString();
-    // Добавялем 1 для отображения 0 месяца, как 1ого и проверка: к однозначному числу добавляем "0"
-    let month =
-      fullDate.getMonth() < 10
-        ? "0" + (1 + fullDate.getMonth())
-        : (fullDate.getMonth() + 1).toString();
-    // проверка: к однозначному числу добавляем "0"
-    let day =
-      fullDate.getDate() < 10
-        ? "0" + fullDate.getDate()
-        : fullDate.getDate().toString();
-    console.log("month: ", month);
+      let year = fullDate.getFullYear().toString();
+      // Добавялем 1 для отображения 0 месяца, как 1ого и проверка: к однозначному числу добавляем "0"
+      let month =
+        fullDate.getMonth() < 10
+          ? "0" + (1 + fullDate.getMonth())
+          : (fullDate.getMonth() + 1).toString();
+      // проверка: к однозначному числу добавляем "0"
+      let day =
+        fullDate.getDate() < 10
+          ? "0" + fullDate.getDate()
+          : fullDate.getDate().toString();
 
-    this.props.fetch(year, month, day); // передаем аргументы фетчу, что бы подставить переменные в url
+      return `${year}-${month}-${day}`;
+    };
+
+    this.props.fetch(transformToCorrectDate(this.props.dateValue)); // передаем аргументы фетчу, что бы подставить переменные в url
   }
   render() {
     const { fetchData } = this.props;
