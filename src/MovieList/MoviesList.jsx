@@ -14,8 +14,8 @@ class MovieList extends Component {
       let year = fullDate.getFullYear().toString();
       // Добавялем 1 для отображения 0 месяца, как 1ого и проверка: к однозначному числу добавляем "0"
       let month =
-        fullDate.getMonth() < 10
-          ? "0" + (1 + fullDate.getMonth())
+        fullDate.getMonth() + 1 < 10
+          ? "0" + (fullDate.getMonth() + 1)
           : (fullDate.getMonth() + 1).toString();
       // проверка: к однозначному числу добавляем "0"
       let day =
@@ -32,7 +32,9 @@ class MovieList extends Component {
     const { fetchData } = this.props;
     return (
       <div>
-        <NavLink to="/">НАЗАД</NavLink>
+        <NavLink className={s.Btn} to="/">
+          НАЗАД
+        </NavLink>
         <ul className={s.List}>
           {fetchData.length === 0 ? (
             <Loader type="Plane" color="#00BFFF" height="100" width="100" />

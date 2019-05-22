@@ -2,3 +2,8 @@
   list-style: none;
   padding-inline-start: 0;
 }
+.Btn {
+  text-decoration: none;
+  cursor: pointer;
+  color: #4d9ce8;
+}

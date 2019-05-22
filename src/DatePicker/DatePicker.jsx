@@ -14,7 +14,7 @@ class DatePicker extends Component {
   render() {
     const { date } = this.state;
     return (
-      <div className={s.DatePicker}>
+      <div>
         <Switch>
           <Route
             exact
@@ -30,7 +30,7 @@ class DatePicker extends Component {
                   Для получения списка сериалов, выберите интересующую дату и
                   нажмите{" "}
                   <NavLink className={s.Btn} to="/movies">
-                    Просмотреть
+                    Просмотреть >>
                   </NavLink>
                 </p>
                 <Calendar
